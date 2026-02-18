@@ -27,3 +27,7 @@ trailingSlash = false
   [params.author]
     name = "Yugam Sehgal"
     email = "hi@yug.am"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
