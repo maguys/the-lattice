@@ -1,0 +1,11 @@
+<div class="epigraph">
+  <blockquote>
+    {{ .Inner | markdownify }}
+    {{ if .Get "footer" }}
+      <footer>
+        {{ .Get "footer" }}
+        {{ with .Get "cite" }}<cite>{{ . }}</cite>{{ end }}
+      </footer>
+    {{ end }}
+  </blockquote>
+</div>

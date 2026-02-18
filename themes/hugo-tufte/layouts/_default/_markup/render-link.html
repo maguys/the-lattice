@@ -1,0 +1,1 @@
+<a {{ if or (strings.HasPrefix .Destination "http") (strings.HasPrefix .Destination "#") (strings.HasPrefix .Destination "/") }}href = "{{ .Destination | safeURL }}"{{ else if strings.HasPrefix .Destination `mailto` }}href = "{{ .Destination }}"{{ end }}{{ if (strings.HasPrefix .Destination "http") }}target = "_blank" rel = "nofollow noopener noreferrer"{{ end }}>{{ .Text }}</a>

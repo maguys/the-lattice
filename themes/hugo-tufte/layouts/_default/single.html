@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article>
+  <h1 class="content-title">{{ .Title }}</h1>
+  {{ with .Params.subtitle }}
+    <p class="subtitle">{{ . }}</p>
+  {{ end }}
+
+  <section>
+    {{ .Content }}
+  </section>
+</article>
+{{ end }}

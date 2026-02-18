@@ -1,0 +1,6 @@
+{{- $uniqueID := .Get 0 | default (md5 .Inner) -}}
+<label for="mn-{{ $uniqueID }}" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-{{ $uniqueID }}" class="margin-toggle"/>
+<span class="marginnote">
+  {{ .Inner | markdownify }}
+</span>

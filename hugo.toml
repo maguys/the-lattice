@@ -1,0 +1,29 @@
+baseURL = 'https://atraxiii.github.io/temp-website'
+languageCode = 'en-in'
+title = "The Lattice"
+theme = "hugo-tufte"
+
+uglyURLs = false
+trailingSlash = false
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = true
+
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['$$', '$$'], ['\\[', '\\]']]
+          inline = [['$', '$'], ['\\(', '\\)']]
+
+  [markup.highlight]
+    noClasses = false
+    style = "tango"
+
+[params]
+  [params.author]
+    name = "Yugam Sehgal"
+    email = "hi@yug.am"

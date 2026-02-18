@@ -1,0 +1,21 @@
+{{ $type := .Get "type" | default "regular" }}
+{{ $src := .Get "src" }}
+{{ $caption := .Get "caption" }}
+{{ $alt := .Get "alt" }}
+
+{{ if eq $type "margin" }}
+  <label for="mn-{{ $src | md5 }}" class="margin-toggle">&#8853;</label>
+  <input type="checkbox" id="mn-{{ $src | md5 }}" class="margin-toggle"/>
+  <span class="marginnote">
+    <img src="{{ $src | relURL }}" alt="{{ $alt }}" />
+    {{ if $caption }}<br>{{ $caption | markdownify }}{{ end }}
+  </span>
+
+{{ else }}
+  <figure {{ if eq $type "full" }}class="fullwidth"{{ end }}>
+    <img src="{{ $src | relURL }}" alt="{{ $alt }}" />
+    {{ if $caption }}
+      <figcaption>{{ $caption | markdownify }}</figcaption>
+    {{ end }}
+  </figure>
+{{ end }}
