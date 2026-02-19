@@ -32,7 +32,8 @@
       });
     });
   </script>
-  <link rel="stylesheet" href="/assets/css/tufte.css">
+  {{ $css := resources.Get "css/tufte.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 </head>
 
 <body>
