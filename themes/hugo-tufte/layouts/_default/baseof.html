@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <title>{{ if .IsHome }}{{ .Title | title }}{{ else }}{{ .Title | title }} - {{ .Site.Title }}{{ end }}</title>
-  <meta name="color-scheme" content="dark light" />
+  <meta name="color-scheme" content="light dark" />
   <meta name="date" content="{{ .Page.Params.date }}">
   <meta name="author" content="{{ .Site.Params.author.name }}">
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css"
     integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi" crossorigin="anonymous">
@@ -32,7 +32,7 @@
       });
     });
   </script>
-  <link rel="stylesheet" href="./assets/css/tufte.css">
+  <link rel="stylesheet" href="/assets/css/tufte.css">
 </head>
 
 <body>

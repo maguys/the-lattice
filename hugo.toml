@@ -1,4 +1,4 @@
-baseURL = 'https://atraxiii.github.io/temp-website'
+baseURL = 'https://lattice.yug.am/'
 languageCode = 'en-in'
 title = "The Lattice"
 theme = "hugo-tufte"
@@ -26,7 +26,7 @@ trailingSlash = false
 [params]
   [params.author]
     name = "Yugam Sehgal"
-    email = "hi@yug.am"
+    email = "mail@yug.am"
 
 [caches]
   [caches.images]
