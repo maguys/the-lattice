@@ -1,0 +1,66 @@
+{{ $content := .Content }}
+{{ $page := .Page }}
+
+{{ $reWithText := `\[\[([^\]\|]+)\|([^\]]+)\]\]` }}
+{{ $reLinkOnly := `\[\[([^\]\|]+)\]\]` }}
+
+{{ range (findRE $reWithText $content) }}
+  {{ $link := replaceRE $reWithText "$1" . }}
+  {{ $text := replaceRE $reWithText "$2" . }}
+
+  {{ $linkParts := split $link "#" }}
+  {{ $cleanPath := index $linkParts 0 }}
+  {{ $anchor := "" }}
+  {{ if gt (len $linkParts) 1 }}
+    {{ $anchor = printf "#%s" (index $linkParts 1) }}
+  {{ end }}
+
+  {{ $target := "" }}
+  {{ if ne $cleanPath "" }}
+    {{ $target = $page.GetPage $cleanPath }}
+  {{ else }}
+    {{ $target = $page }} {{ end }}
+
+  {{ $replacement := "" }}
+  {{ if $target }}
+    {{ $replacement = printf `<a href="%s%s" class="internal-link">%s</a>` $target.RelPermalink $anchor $text }}
+  {{ else }}
+    {{ $replacement = printf `<span class="internal-link broken">%s</span>` $text }}
+  {{ end }}
+
+  {{ $content = replace $content . $replacement }}
+{{ end }}
+
+{{ range (findRE $reLinkOnly $content) }}
+  {{ $link := replaceRE $reLinkOnly "$1" . }}
+
+  {{ $linkParts := split $link "#" }}
+  {{ $cleanPath := index $linkParts 0 }}
+  {{ $anchor := "" }}
+  {{ if gt (len $linkParts) 1 }}
+    {{ $anchor = printf "#%s" (index $linkParts 1) }}
+  {{ end }}
+
+  {{ $target := "" }}
+  {{ if ne $cleanPath "" }}
+    {{ $target = $page.GetPage $cleanPath }}
+  {{ else }}
+    {{ $target = $page }}
+  {{ end }}
+
+  {{ $replacement := "" }}
+  {{ if $target }}
+    {{ $text := $target.Title }}
+    {{ if and (eq $cleanPath "") (ne $anchor "") }}
+      {{ $text = index $linkParts 1 }}
+    {{ end }}
+    
+    {{ $replacement = printf `<a href="%s%s" class="internal-link">%s</a>` $target.RelPermalink $anchor $text }}
+  {{ else }}
+    {{ $replacement = printf `<span class="internal-link broken">%s</span>` $link }}
+  {{ end }}
+
+  {{ $content = replace $content . $replacement }}
+{{ end }}
+
+{{ $content | safeHTML }}
