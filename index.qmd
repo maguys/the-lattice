@@ -86,4 +86,6 @@ $$ Multiplication by numbers just results in shorter/longer vector (no rotation)
 
 > *When does a matrix act just like a number? Is the matrix special or is the vector special or do they come in pair?*
 
-[For your time, *Merci* :)]{.text-end}
+::: {.text-end}
+For your time, *Merci* :)
+:::
