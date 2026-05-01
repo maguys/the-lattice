@@ -6,7 +6,7 @@ project:
 website:
   title: Lattice
   favicon: assets/favicon.svg
-  site-url: "https://lattice.yug.am"
+  site-url: "https://thelattice.netlify.app"
   sidebar:
     style: "floating"
     search: true
