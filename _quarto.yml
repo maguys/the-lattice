@@ -2,14 +2,16 @@ project:
   type: website
 
 website:
-  title: "Lattice"
+  title: Lattice
   favicon: assets/favicon.svg
   site-url: "https://lattice.yug.am"
   sidebar:
     style: "floating"
     search: true
     contents:
-      - text: "Introduction"
+      - text: Introduction
+        href: index.qmd
+      - text: Home
         href: index.qmd
 
 format:
