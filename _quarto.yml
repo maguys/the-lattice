@@ -13,8 +13,6 @@ website:
     contents:
       - text: Introduction
         href: index.qmd
-      - text: Home
-        href: index.qmd
 
 format:
   html:
