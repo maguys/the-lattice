@@ -1,0 +1,1 @@
+Sitemap: https://thelattice.netlify.app/sitemap.xml

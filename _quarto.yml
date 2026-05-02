@@ -22,9 +22,3 @@ format:
     css: css/styles.css
     toc: true
     page-layout: full
-    
-
-execute:
-  freeze: auto
-
-
